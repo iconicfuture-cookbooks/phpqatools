@@ -1,6 +1,6 @@
 #
 # Cookbook Name:: phpqatools
-# Recipe:: default
+# Recipe:: prerequisites
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -15,23 +15,16 @@
 # limitations under the License.
 #
 
-# install php prerequisites
-include_recipe "phpqatools::prerequisites"
+#
+# Install xsl and xdebug
+#
 
-# install pdepend
-include_recipe "phpqatools::pdepend"
+execute "PHP QA Tools - install package dependencies" do
+  command "apt-get -y install php5-xsl php5-xdebug"
+  not_if do
+    File.exists?("/var/lock/if-phpunit-installed")
+  end
+  user "root"
+  action :run
+end
 
-# install phpunit
-include_recipe "phpqatools::phpunit"
-
-# install phploc
-include_recipe "phpqatools::phploc"
-
-# install phpcpd
-include_recipe "phpqatools::phpcpd"
-
-# install phpmd
-include_recipe "phpqatools::phpmd"
-
-# install phpcs
-include_recipe "phpqatools::phpcs"
