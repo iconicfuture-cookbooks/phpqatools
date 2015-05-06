@@ -20,7 +20,7 @@
 #
 
 execute "PHP QA Tools - install package dependencies" do
-  command "apt-get -y install php5-xsl php5-xdebug"
+  command "apt-get -y install php5-xsl php5-xdebug graphViz"
   not_if do
     File.exists?("/var/lock/if-phpunit-installed")
   end
