@@ -24,7 +24,7 @@ include_recipe "phpqatools::pdepend"
 execute "PHP QA Tools - download source for 'phpmd'" do
   command "wget http://static.phpmd.org/php/2.1.3/phpmd.phar"
   not_if do
-    File.exists?("/var/log/if-phpunit-installed")
+    File.exists?("/var/log/if-phpmd-installed")
   end
   user "root"
   action :run
@@ -33,7 +33,7 @@ end
 execute "PHP QA Tools - change source permission" do
   command "chmod +x phpmd.phar"
   not_if do
-    File.exists?("/var/log/if-phpunit-installed")
+    File.exists?("/var/log/if-phpmd-installed")
   end
   user "root"
   action :run
@@ -42,7 +42,7 @@ end
 execute "PHP QA Tools - move source '/usr/local/bin/phpmd'" do
   command "mv phpmd.phar /usr/local/bin/phpmd"
   not_if do
-    File.exists?("/var/log/if-phpunit-installed")
+    File.exists?("/var/log/if-phpmd-installed")
   end
   user "root"
   action :run
