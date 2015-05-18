@@ -22,7 +22,7 @@
 execute "PHP QA Tools - download source for 'phploc'" do
   command "wget https://phar.phpunit.de/phploc.phar"
   not_if do
-    File.exists?("/var/log/if-phpunit-installed")
+    File.exists?("/var/log/if-phploc-installed")
   end
   user "root"
   action :run
@@ -31,7 +31,7 @@ end
 execute "PHP QA Tools - change source permission" do
   command "chmod +x phploc.phar"
   not_if do
-    File.exists?("/var/log/if-phpunit-installed")
+    File.exists?("/var/log/if-phploc-installed")
   end
   user "root"
   action :run
@@ -40,7 +40,7 @@ end
 execute "PHP QA Tools - move source '/usr/local/bin/phploc'" do
   command "mv phploc.phar /usr/local/bin/phploc"
   not_if do
-    File.exists?("/var/log/if-phpunit-installed")
+    File.exists?("/var/log/if-phploc-installed")
   end
   user "root"
   action :run

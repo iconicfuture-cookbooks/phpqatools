@@ -15,9 +15,6 @@
 # limitations under the License.
 #
 
-# install php prerequisites
-include_recipe "phpqatools::prerequisites"
-
 #
 # Install phpunit
 #

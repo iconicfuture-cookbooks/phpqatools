@@ -22,7 +22,7 @@
 execute "PHP QA Tools - download source for 'phpcs'" do
   command "wget https://squizlabs.github.io/PHP_CodeSniffer/phpcs.phar"
   not_if do
-    File.exists?("/var/log/if-phpunit-installed")
+    File.exists?("/var/log/if-phpcs-installed")
   end
   user "root"
   action :run
@@ -31,7 +31,7 @@ end
 execute "PHP QA Tools - change source permission" do
   command "chmod +x phpcs.phar"
   not_if do
-    File.exists?("/var/log/if-phpunit-installed")
+    File.exists?("/var/log/if-phpcs-installed")
   end
   user "root"
   action :run
@@ -40,9 +40,21 @@ end
 execute "PHP QA Tools - move source '/usr/local/bin/phpcs'" do
   command "mv phpcs.phar /usr/local/bin/phpcs"
   not_if do
-    File.exists?("/var/log/if-phpunit-installed")
+    File.exists?("/var/log/if-phpcs-installed")
   end
   user "root"
   action :run
 end
 
+#
+# Set lock file to prevent repeat setup
+#
+
+execute "PHP QA Tools - set phpcs installation done lock file" do
+  command "touch /var/log/if-phpcs-installed"
+  not_if do
+    File.exists?("/var/log/if-phpcs-installed")
+  end
+  user "root"
+  action :run
+end

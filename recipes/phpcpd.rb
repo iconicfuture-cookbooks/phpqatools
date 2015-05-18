@@ -22,7 +22,7 @@
 execute "PHP QA Tools - download source for 'phpcpd'" do
   command "wget https://phar.phpunit.de/phpcpd.phar"
   not_if do
-    File.exists?("/var/log/if-phpunit-installed")
+    File.exists?("/var/log/if-phpcpd-installed")
   end
   user "root"
   action :run
@@ -31,7 +31,7 @@ end
 execute "PHP QA Tools - change source permission" do
   command "chmod +x phpcpd.phar"
   not_if do
-    File.exists?("/var/log/if-phpunit-installed")
+    File.exists?("/var/log/if-phpcpd-installed")
   end
   user "root"
   action :run
@@ -40,7 +40,7 @@ end
 execute "PHP QA Tools - move source '/usr/local/bin/phpcpd'" do
   command "mv phpcpd.phar /usr/local/bin/phpcpd"
   not_if do
-    File.exists?("/var/log/if-phpunit-installed")
+    File.exists?("/var/log/if-phpcpd-installed")
   end
   user "root"
   action :run
