@@ -5,6 +5,8 @@ Chef Cookbook for installing phpunit, phploc, phpdpd, phpmd, phpdoc, phpcs.
 
 This cookbook is been used together with librarian-chef.
 
+It provides a custom www.conf and apc.ini.
+
 Requirements
 ============
 
