@@ -35,3 +35,6 @@ include_recipe "phpqatools::phpmd"
 
 # install phpcs
 include_recipe "phpqatools::phpcs"
+
+# install phpDocumentor
+include_recipe "phpqatools::phpdocumentor"

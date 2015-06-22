@@ -1,7 +1,7 @@
 Description
 ===========
 
-Chef Cookbook for installing phpunit, phploc, phpdpd, phpmd, phpdoc, phpcs.
+Chef Cookbook for installing pdepend, phpunit, phploc, phpcpd, phpmd, phpcs, phpDocumentor.
 
 This cookbook is been used together with librarian-chef.
 
