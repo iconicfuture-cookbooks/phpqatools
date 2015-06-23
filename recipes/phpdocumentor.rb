@@ -38,7 +38,7 @@ execute "PHP QA Tools - change source permission" do
 end
 
 execute "PHP QA Tools - move source '/usr/local/bin/phpDocumentor'" do
-  command "mv phpDocumentor.phar /usr/local/bin/phpDocumentor"
+  command "mv phpDocumentor.phar /usr/local/bin/phpdoc"
   not_if do
     File.exists?("/var/log/if-phpdocumentor-installed")
   end
