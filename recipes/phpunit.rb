@@ -20,7 +20,7 @@
 #
 
 execute "PHP QA Tools - download source for 'phpunit'" do
-  command "wget https://phar.phpunit.de/phpunit.phar"
+  command "wget https://phar.phpunit.de/phpunit-4.8.9.phar"
   not_if do
     File.exists?("/var/log/if-phpunit-installed")
   end
@@ -29,7 +29,7 @@ execute "PHP QA Tools - download source for 'phpunit'" do
 end
 
 execute "PHP QA Tools - change source permission" do
-  command "chmod +x phpunit.phar"
+  command "chmod +x phpunit-4.8.9.phar"
   not_if do
     File.exists?("/var/log/if-phpunit-installed")
   end
@@ -38,7 +38,7 @@ execute "PHP QA Tools - change source permission" do
 end
 
 execute "PHP QA Tools - move source '/usr/local/bin/phpunit'" do
-  command "mv phpunit.phar /usr/local/bin/phpunit"
+  command "mv phpunit-4.8.9.phar /usr/local/bin/phpunit"
   not_if do
     File.exists?("/var/log/if-phpunit-installed")
   end
